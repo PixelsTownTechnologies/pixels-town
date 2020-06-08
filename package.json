@@ -12,14 +12,13 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-
     "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
-    "start": "npm start --cwd \"./front-end\" --prefix \"./front-end\"",
-    "build": "npm build --cwd \"./front-end\" --prefix \"./front-end\"",
-    "test": "npm test --cwd \"./front-end\" --prefix \"./front-end\"",
-    "eject": "npm eject --cwd \"./front-end\" --prefix \"./front-end\""
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
