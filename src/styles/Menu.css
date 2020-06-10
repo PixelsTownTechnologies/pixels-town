@@ -1,0 +1,36 @@
+.logo-name-first-part{
+    color: #43c5b8;
+    font-size: 1.6em;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    margin-top: 5px;
+}
+.logo-name-second-part{
+    color: #ffffff;
+    font-size: 1.6em;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 5px;
+
+}
+.logo-menu{
+    color: #ffffff;
+    font-size: 1.2em;
+    align-items: center;
+    padding-right: 5px;
+}
+
+.text-menu {
+    color: #ffffff;
+    font-size: 1.6em;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.margin-from-menu {
+    margin-top: 50px;
+}
