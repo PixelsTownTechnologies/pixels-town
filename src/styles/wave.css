@@ -1,0 +1,31 @@
+#wave {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    z-index: 0;
+    background: #008C84;
+}
+#wave:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 50%;
+    height: 110px;
+    background-color: #fafafa;
+    z-index: -50;
+    right: -5px;
+    top: 50px;
+}
+#wave:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 56%;
+    height: 100px;
+    background-color: #008C84;
+    left: 0;
+    z-index: -1;
+    top: 37px;
+}
