@@ -13,6 +13,7 @@ import {
 import {EmptyValidator, StringValidator} from "./comp/validators";
 import {Dialog, Image, Mag, Segment} from "./comp/blocks";
 import {Container} from "./comp/layout";
+import {Button} from "semantic-ui-react";
 /*
 import Authenticate from "./components/operation/Authenticate";
 import {BrowserRouter} from "react-router-dom";
@@ -195,6 +196,7 @@ class App extends React.Component {
 
     render() {
         return (<div>
+                <Button text="Click Me"/>
                 <SearchInput
                     value={this.state.value}
                     change={(value, validator) => {
