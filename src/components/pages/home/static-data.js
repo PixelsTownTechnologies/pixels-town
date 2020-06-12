@@ -17,7 +17,12 @@ import DjangoIcon from '../../../resource/images/languages/django.png';
 import SpringIcon from '../../../resource/images/languages/spring.png';
 import CssIcon from '../../../resource/images/languages/css.png';
 import HtmlIcon from '../../../resource/images/languages/html.png';
-import PersonImage from '../../../resource/images/pages/home/clients/person.jpg';
+
+import Person1Image from '../../../resource/images/pages/home/clients/person.jpg';
+import Person2Image from '../../../resource/images/pages/home/clients/person2.jpg';
+import Person3Image from '../../../resource/images/pages/home/clients/p3.jpg';
+import Person4Image from '../../../resource/images/pages/home/clients/najah.jpg';
+import Person5Image from '../../../resource/images/pages/home/clients/tackelabs.png';
 
 export const skills = [
     {
@@ -115,29 +120,29 @@ export const FrameworksButtons = [
 
 export const ClientComments = [
     {
-        image: PersonImage,
-        name: '1',
+        image: Person1Image,
+        name: 'Kalven Dadar',
+        description: 'I bless you in the new site, you deserve the best forward.',
+        date: ''
+    }, {
+        image: Person2Image,
+        name: 'Marten',
         description: 'Nice team, professional work and very cool designs',
         date: ''
     }, {
-        image: PersonImage,
-        name: '2',
-        description: 'Nice team, professional work and very cool designs',
+        image: Person5Image,
+        name: 'TackleLabs',
+        description: 'Really professional work and great ideas. Thank you.',
         date: ''
     }, {
-        image: PersonImage,
-        name: '3',
-        description: 'Nice team, professional work and very cool designs',
+        image: Person3Image,
+        name: 'Shakon bakr',
+        description: 'I dealt with them a lot and it was a wonderful thing to work.',
         date: ''
     }, {
-        image: PersonImage,
-        name: '4',
-        description: 'Nice team, professional work and very cool designs',
-        date: ''
-    }, {
-        image: PersonImage,
-        name: '5',
-        description: 'Nice team, professional work and very cool designs',
+        image: Person4Image,
+        name: 'An-Najah University',
+        description: 'A very cooperative company with customers, Thank you.',
         date: ''
     }
 ];

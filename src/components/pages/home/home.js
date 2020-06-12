@@ -139,10 +139,10 @@ function HomeSection4() {
             vertical
             className=""
         >
-            <div className="home-container section3-container">
+            <div className="home-container section4-container">
                 <Header as='h1'>
                     <Icon name='comments'/>
-                    Client Comments
+                    Top Client Comments
                 </Header>
                 <CardViewer cards={
                     ClientComments.map(card => {
@@ -156,33 +156,13 @@ function HomeSection4() {
 
 function ChattingButton(props) {
     return (
-        <div className="chatting-button" onClick={props.click}
-             style={{left: props.left, top: props.top}}>
+        <div className="chatting-button" onClick={props.click}>
             <Image src={MessageIcon}/>
         </div>
     );
 }
 
 class Home extends React.Component {
-
-    state = {
-        chattingBoxShow: false,
-        chatting: {
-            caller: [{image: BootIcon, id: 555521, name: 'PixelsTown Support'}],
-            owner: {image: BootIcon, id: 1, name: 'Guest'},
-            onMsgSend: (msg) => {
-                this.msgSendHandler(msg)
-            }
-        },
-        messages: [{
-            id: 1,
-            senderId: 555521,
-            msg: 'Hello, Can i help you?'
-        }],
-        chattingWriting: false,
-        isMsgSend: false,
-        showSoon: false
-    };
 
     msgSendHandler = (msg) => {
         this.setState({
@@ -207,21 +187,34 @@ class Home extends React.Component {
         }
     };
 
+    state = {
+        chattingBoxShow: false,
+        chatting: {
+            caller: [{image: BootIcon, id: 555521, name: 'PixelsTown Support'}],
+            owner: {image: BootIcon, id: 1, name: 'Guest'},
+            onMsgSend: (msg) => {
+                this.msgSendHandler(msg)
+            }
+        },
+        messages: [{
+            id: 1,
+            senderId: 555521,
+            msg: 'Hello, Can i help you?'
+        }],
+        chattingWriting: false,
+        isMsgSend: false,
+        showSoon: false
+    };
+
     render() {
         const chattingBoxConfig = {
             show: this.state.chattingBoxShow,
             className: "chatting-box",
-            width: 250,
-            height: 320,
-            left: document.documentElement.clientWidth - 250 - 30,
-            top: document.documentElement.clientHeight - 30 - 320
         };
         const chattingButtonConfig = {
             click: () => {
                 this.setState({chattingBoxShow: !this.state.chattingBoxShow})
-            },
-            left: document.documentElement.clientWidth - 80,
-            top: document.documentElement.clientHeight - 80
+            }
         };
         return (
             <PageWrapper openModel={this.state.showSoon}>

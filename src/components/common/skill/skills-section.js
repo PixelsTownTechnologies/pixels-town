@@ -25,7 +25,7 @@ class SkillsSection extends React.Component {
         });
         return (items.length - 1) % 3 === 0 ? [
             ...items.slice(0, items.length - 1),
-            <Grid.Column computer={5}>
+            <Grid.Column computer={5} key={items.length + 1}>
             </Grid.Column>
             , items.slice(items.length - 1, items.length)
         ] : items
