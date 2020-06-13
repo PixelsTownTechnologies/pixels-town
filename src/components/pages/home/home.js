@@ -21,16 +21,9 @@ import ClientCard from "../../common/cards/client-card/client-card";
 import SoonModel from "../../common/models/soon/soon";
 
 class HomeCompanyContent extends React.Component {
-    state = {
-        showSoon: false,
-    };
-
     render() {
         return (
             <Segment className="home-background-text">
-                <SoonModel open={this.state.showSoon} change={(value) => {
-                    this.setState({showSoon: value})
-                }}/>
                 <PixelsTownLogo size={200} background='#C3E0E5'/>
                 <PixelsTownName style={{fontSize: '2.0em'}}/>
                 <h3 style={{fontStyle: 'italic'}}>“Under each pixel there's story”</h3>
@@ -38,12 +31,16 @@ class HomeCompanyContent extends React.Component {
                     cost!</p>
                 <Grid columns={2}>
                     <Grid.Column columns={10}>
-                        <button className="px-button" onClick={()=>{this.setState({showSoon: true})}}>
+                        <button className="px-button" onClick={() => {
+                            this.props.showSoon()
+                        }}>
                             Join
                         </button>
                     </Grid.Column>
                     <Grid.Column columns={6} className="home-have-account-style">
-                        <Link to=""  onClick={()=>{this.setState({showSoon: true})}}>I have account!</Link>
+                        <Link to="" onClick={() => {
+                            this.props.showSoon()
+                        }}>I have account!</Link>
                     </Grid.Column>
                 </Grid>
             </Segment>
@@ -52,7 +49,7 @@ class HomeCompanyContent extends React.Component {
 
 }
 
-function HomeSection1() {
+function HomeSection1(props) {
     return (
         <Segment
             textAlign='center'
@@ -62,15 +59,15 @@ function HomeSection1() {
         >
             <div className="home-container home-background">
                 <Responsive {...Responsive.onlyMobile}>
-                    <HomeCompanyContent/>
+                    <HomeCompanyContent showSoon={props.showSoon}/>
                 </Responsive>
                 <Responsive {...Responsive.onlyTablet}>
-                    <HomeCompanyContent/>
+                    <HomeCompanyContent showSoon={props.showSoon}/>
                 </Responsive>
                 <Responsive {...Responsive.onlyComputer}>
                     <Grid columns={2}>
                         <Grid.Column columns={4}>
-                            <HomeCompanyContent/>
+                            <HomeCompanyContent showSoon={props.showSoon}/>
                         </Grid.Column>
                         <Grid.Column columns={12}>
                             <Segment className="home-background-image">
@@ -217,6 +214,10 @@ class Home extends React.Component {
         showSoon: false,
     };
 
+    showSoon = () => {
+        this.setState({showSoon: true});
+    };
+
     render() {
         const chattingBoxConfig = {
             show: this.state.chattingBoxShow,
@@ -229,6 +230,9 @@ class Home extends React.Component {
         };
         return (
             <PageWrapper openModel={this.state.showSoon}>
+                <SoonModel open={this.state.showSoon} change={(value) => {
+                    this.setState({showSoon: value})
+                }}/>
                 <ChattingBox
                     {...this.state.chatting}
                     messages={this.state.messages}
@@ -238,7 +242,7 @@ class Home extends React.Component {
                 <ChattingButton
                     {...chattingButtonConfig}
                 />
-                <HomeSection1/>
+                <HomeSection1 showSoon={this.showSoon}/>
                 <HomeSection2/>
                 <HomeSection3/>
                 <HomeSection4/>
