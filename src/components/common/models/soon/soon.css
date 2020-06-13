@@ -1,0 +1,6 @@
+.soon-msg-box{
+    position: absolute !important;
+    left: 5%;
+    top: calc(100% - 100px);
+    z-index: 2000000;
+}

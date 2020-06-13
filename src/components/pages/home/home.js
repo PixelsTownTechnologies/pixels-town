@@ -18,27 +18,38 @@ import ChattingBox from "../../common/chatting-box/chatting-box";
 import BootIcon from "../../../resource/images/pages/home/boot.png";
 import CardViewer from "../../common/cards/viewer/card-viewer";
 import ClientCard from "../../common/cards/client-card/client-card";
+import SoonModel from "../../common/models/soon/soon";
 
-function HomeCompanyContent() {
-    return (
-        <Segment className="home-background-text">
-            <PixelsTownLogo size={200} background='#C3E0E5'/>
-            <PixelsTownName style={{fontSize: '2.0em'}}/>
-            <h3 style={{fontStyle: 'italic'}}>“Under each pixel there's story”</h3>
-            <p style={{fontStyle: 'italic'}}>Join Now to get many free <br/> services and design you site by lower
-                cost!</p>
-            <Grid columns={2}>
-                <Grid.Column columns={10}>
-                    <button className="px-button">
-                        Join
-                    </button>
-                </Grid.Column>
-                <Grid.Column columns={6} className="home-have-account-style">
-                    <Link to="">I have account!</Link>
-                </Grid.Column>
-            </Grid>
-        </Segment>
-    );
+class HomeCompanyContent extends React.Component {
+    state = {
+        showSoon: false,
+    };
+
+    render() {
+        return (
+            <Segment className="home-background-text">
+                <SoonModel open={this.state.showSoon} change={(value) => {
+                    this.setState({showSoon: value})
+                }}/>
+                <PixelsTownLogo size={200} background='#C3E0E5'/>
+                <PixelsTownName style={{fontSize: '2.0em'}}/>
+                <h3 style={{fontStyle: 'italic'}}>“Under each pixel there's story”</h3>
+                <p style={{fontStyle: 'italic'}}>Join Now to get many free <br/> services and design you site by lower
+                    cost!</p>
+                <Grid columns={2}>
+                    <Grid.Column columns={10}>
+                        <button className="px-button" onClick={()=>{this.setState({showSoon: true})}}>
+                            Join
+                        </button>
+                    </Grid.Column>
+                    <Grid.Column columns={6} className="home-have-account-style">
+                        <Link to=""  onClick={()=>{this.setState({showSoon: true})}}>I have account!</Link>
+                    </Grid.Column>
+                </Grid>
+            </Segment>
+        );
+    }
+
 }
 
 function HomeSection1() {
@@ -203,7 +214,7 @@ class Home extends React.Component {
         }],
         chattingWriting: false,
         isMsgSend: false,
-        showSoon: false
+        showSoon: false,
     };
 
     render() {

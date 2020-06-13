@@ -1,7 +1,8 @@
 import React from "react";
-import {Container, Menu as SMenu, Responsive, Dropdown} from "semantic-ui-react";
+import {Container, Dropdown, Menu as SMenu, Responsive} from "semantic-ui-react";
 import {PixelsTownMenuItemName} from "../site/name/site-name";
 import './menu.css';
+import SoonModel from "../models/soon/soon";
 
 class Menu extends React.Component {
 
@@ -10,11 +11,12 @@ class Menu extends React.Component {
         this.state = {
             selectedItem: props.items && props.items.filter(item => item.isSelected).length > 0 ? props.items.filter(item => item.isSelected)[0] : [],
             items: props.items,
+            showSoon: false
         };
     }
 
     handleItemMenuSelected = (e, item) => {
-        this.setState({selectedItem: item});
+        this.setState({selectedItem: item, showSoon: true});
         if (item && item.subHandle) {
             item.subHandle(item);
         }
@@ -59,12 +61,15 @@ class Menu extends React.Component {
     render() {
         return (
             <div>
+                <SoonModel open={this.state.showSoon} change={(value) => {
+                    this.setState({showSoon: value})
+                }}/>
                 <Responsive {...Responsive.onlyComputer}>
                     <SMenu
                         secondary
                         fixed='top'
                         size='large'
-                        className={this.props.fixed ? 'border-menu': 'border-menu unfixed-menu'}
+                        className={this.props.fixed ? 'border-menu' : 'border-menu unfixed-menu'}
                     >
                         <Container>
                             <PixelsTownMenuItemName/>
@@ -80,7 +85,7 @@ class Menu extends React.Component {
                         secondary
                         fixed='top'
                         size='large'
-                        className={this.props.fixed ? 'border-menu': 'border-menu unfixed-menu'}
+                        className={this.props.fixed ? 'border-menu' : 'border-menu unfixed-menu'}
                     >
                         <Container>
                             <PixelsTownMenuItemName/>
@@ -100,7 +105,7 @@ class Menu extends React.Component {
                         secondary
                         fixed='top'
                         size='large'
-                        className={this.props.fixed ? 'border-menu': 'border-menu unfixed-menu'}
+                        className={this.props.fixed ? 'border-menu' : 'border-menu unfixed-menu'}
                     >
                         <Container>
                             <PixelsTownMenuItemName/>
